@@ -14,7 +14,7 @@ DEFVAR GF@sindex
 DEFVAR GF@sread
 DEFVAR GF@move
 DEFVAR GF@total
-JUMP bb5
+JUMP bb4
 
 LABEL bb4
 # 4 state busy beaver - 107 steps, output 13, ptr span(-10, 3) from start

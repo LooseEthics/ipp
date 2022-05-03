@@ -46,7 +46,7 @@
   <arg1 type="var">GF@total</arg1>
  </instruction>
  <instruction order="16" opcode="JUMP">
-  <arg1 type="label">bb5</arg1>
+  <arg1 type="label">bb4</arg1>
  </instruction>
  <instruction order="17" opcode="LABEL">
   <arg1 type="label">bb4</arg1>

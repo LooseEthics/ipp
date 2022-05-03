@@ -1,0 +1,20 @@
+.IPPcode22
+DEFVAR GF@a
+DEFVAR GF@b
+DEFVAR GF@c
+DEFVAR GF@cnt
+MOVE GF@a int@0
+MOVE GF@b int@1
+MOVE GF@cnt int@1
+LABEL loop
+ADD GF@cnt GF@cnt int@1
+ADD GF@c GF@a GF@b
+MOVE GF@a GF@b
+MOVE GF@b GF@c
+WRITE GF@cnt
+WRITE string@\032
+WRITE GF@c
+WRITE string@\010
+JUMPIFNEQ loop GF@cnt int@20
+LABEL end
+

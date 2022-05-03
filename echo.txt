@@ -1,6 +1,0 @@
-.IPPcode22
-DEFVAR GF@input
-READ GF@input string
-WRITE GF@input
-LABEL end
-

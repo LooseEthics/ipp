@@ -254,7 +254,7 @@ def un_xml(string):
 	return out
 
 def un_escape(string):
-	'''
+	r'''
 	Replaces \xyz escape sequences in string with the corresponding char
 	'''
 	invalid_seq = re.search(pat_escape_invalid, string)

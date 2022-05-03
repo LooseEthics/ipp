@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="DEFVAR">
+  <arg1 type="var">GF@input</arg1>
+ </instruction>
+ <instruction order="2" opcode="DEFVAR">
+  <arg1 type="var">GF@inlen</arg1>
+ </instruction>
+ <instruction order="3" opcode="DEFVAR">
+  <arg1 type="var">GF@ptr</arg1>
+ </instruction>
+ <instruction order="4" opcode="DEFVAR">
+  <arg1 type="var">GF@charbuff</arg1>
+ </instruction>
+ <instruction order="5" opcode="DEFVAR">
+  <arg1 type="var">GF@output</arg1>
+ </instruction>
+ <instruction order="6" opcode="READ">
+  <arg1 type="var">GF@input</arg1>
+  <arg2 type="type">string</arg2>
+ </instruction>
+ <instruction order="7" opcode="STRLEN">
+  <arg1 type="var">GF@inlen</arg1>
+  <arg2 type="var">GF@input</arg2>
+ </instruction>
+ <instruction order="8" opcode="SUB">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@inlen</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="9" opcode="MOVE">
+  <arg1 type="var">GF@output</arg1>
+  <arg2 type="string"></arg2>
+ </instruction>
+ <instruction order="10" opcode="LABEL">
+  <arg1 type="label">loop</arg1>
+ </instruction>
+ <instruction order="11" opcode="GETCHAR">
+  <arg1 type="var">GF@charbuff</arg1>
+  <arg2 type="var">GF@input</arg2>
+  <arg3 type="var">GF@ptr</arg3>
+ </instruction>
+ <instruction order="12" opcode="CONCAT">
+  <arg1 type="var">GF@output</arg1>
+  <arg2 type="var">GF@output</arg2>
+  <arg3 type="var">GF@charbuff</arg3>
+ </instruction>
+ <instruction order="13" opcode="SUB">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="14" opcode="JUMPIFNEQ">
+  <arg1 type="label">loop</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="int">-1</arg3>
+ </instruction>
+ <instruction order="15" opcode="WRITE">
+  <arg1 type="var">GF@output</arg1>
+ </instruction>
+ <instruction order="16" opcode="LABEL">
+  <arg1 type="label">end</arg1>
+ </instruction>
+</program>

@@ -1,0 +1,18 @@
+.IPPcode22
+DEFVAR GF@input
+DEFVAR GF@inlen
+DEFVAR GF@ptr
+DEFVAR GF@charbuff
+DEFVAR GF@output
+READ GF@input string
+STRLEN GF@inlen GF@input
+SUB GF@ptr GF@inlen int@1
+MOVE GF@output string@
+LABEL loop
+GETCHAR GF@charbuff GF@input GF@ptr
+CONCAT GF@output GF@output GF@charbuff
+SUB GF@ptr GF@ptr int@1
+JUMPIFNEQ loop GF@ptr int@-1
+WRITE GF@output
+LABEL end
+

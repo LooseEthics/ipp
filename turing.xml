@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program language="IPPcode22">
+ <instruction order="1" opcode="DEFVAR">
+  <arg1 type="var">GF@tur</arg1>
+ </instruction>
+ <instruction order="2" opcode="DEFVAR">
+  <arg1 type="var">GF@turptr</arg1>
+ </instruction>
+ <instruction order="3" opcode="DEFVAR">
+  <arg1 type="var">GF@statemap</arg1>
+ </instruction>
+ <instruction order="4" opcode="DEFVAR">
+  <arg1 type="var">GF@statecnt</arg1>
+ </instruction>
+ <instruction order="5" opcode="DEFVAR">
+  <arg1 type="var">GF@memsize</arg1>
+ </instruction>
+ <instruction order="6" opcode="DEFVAR">
+  <arg1 type="var">GF@mem</arg1>
+ </instruction>
+ <instruction order="7" opcode="DEFVAR">
+  <arg1 type="var">GF@state</arg1>
+ </instruction>
+ <instruction order="8" opcode="DEFVAR">
+  <arg1 type="var">GF@ptr</arg1>
+ </instruction>
+ <instruction order="9" opcode="DEFVAR">
+  <arg1 type="var">GF@step</arg1>
+ </instruction>
+ <instruction order="10" opcode="DEFVAR">
+  <arg1 type="var">GF@read</arg1>
+ </instruction>
+ <instruction order="11" opcode="DEFVAR">
+  <arg1 type="var">GF@wrt</arg1>
+ </instruction>
+ <instruction order="12" opcode="DEFVAR">
+  <arg1 type="var">GF@sindex</arg1>
+ </instruction>
+ <instruction order="13" opcode="DEFVAR">
+  <arg1 type="var">GF@sread</arg1>
+ </instruction>
+ <instruction order="14" opcode="DEFVAR">
+  <arg1 type="var">GF@move</arg1>
+ </instruction>
+ <instruction order="15" opcode="DEFVAR">
+  <arg1 type="var">GF@total</arg1>
+ </instruction>
+ <instruction order="16" opcode="JUMP">
+  <arg1 type="label">bb5</arg1>
+ </instruction>
+ <instruction order="17" opcode="LABEL">
+  <arg1 type="label">bb4</arg1>
+ </instruction>
+ <instruction order="18" opcode="MOVE">
+  <arg1 type="var">GF@tur</arg1>
+  <arg2 type="string">1rb1lb1la0lc1rh1ld1rd0ra</arg2>
+ </instruction>
+ <instruction order="19" opcode="MOVE">
+  <arg1 type="var">GF@statemap</arg1>
+  <arg2 type="string">abcd</arg2>
+ </instruction>
+ <instruction order="20" opcode="MOVE">
+  <arg1 type="var">GF@memsize</arg1>
+  <arg2 type="int">20</arg2>
+ </instruction>
+ <instruction order="21" opcode="JUMP">
+  <arg1 type="label">run</arg1>
+ </instruction>
+ <instruction order="22" opcode="LABEL">
+  <arg1 type="label">bb5</arg1>
+ </instruction>
+ <instruction order="23" opcode="MOVE">
+  <arg1 type="var">GF@tur</arg1>
+  <arg2 type="string">1rb1lc1rc1rb1rd0le1la1ld1rh0la</arg2>
+ </instruction>
+ <instruction order="24" opcode="MOVE">
+  <arg1 type="var">GF@statemap</arg1>
+  <arg2 type="string">abcde</arg2>
+ </instruction>
+ <instruction order="25" opcode="MOVE">
+  <arg1 type="var">GF@memsize</arg1>
+  <arg2 type="int">13000</arg2>
+ </instruction>
+ <instruction order="26" opcode="JUMP">
+  <arg1 type="label">run</arg1>
+ </instruction>
+ <instruction order="27" opcode="LABEL">
+  <arg1 type="label">run</arg1>
+ </instruction>
+ <instruction order="28" opcode="MOVE">
+  <arg1 type="var">GF@mem</arg1>
+  <arg2 type="string"></arg2>
+ </instruction>
+ <instruction order="29" opcode="MOVE">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="30" opcode="STRLEN">
+  <arg1 type="var">GF@statecnt</arg1>
+  <arg2 type="var">GF@statemap</arg2>
+ </instruction>
+ <instruction order="31" opcode="LABEL">
+  <arg1 type="label">mem_ctor_loop</arg1>
+ </instruction>
+ <instruction order="32" opcode="CONCAT">
+  <arg1 type="var">GF@mem</arg1>
+  <arg2 type="var">GF@mem</arg2>
+  <arg3 type="string">0</arg3>
+ </instruction>
+ <instruction order="33" opcode="ADD">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="34" opcode="JUMPIFNEQ">
+  <arg1 type="label">mem_ctor_loop</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@memsize</arg3>
+ </instruction>
+ <instruction order="35" opcode="GETCHAR">
+  <arg1 type="var">GF@state</arg1>
+  <arg2 type="var">GF@statemap</arg2>
+  <arg3 type="int">0</arg3>
+ </instruction>
+ <instruction order="36" opcode="MOVE">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="37" opcode="MOVE">
+  <arg1 type="var">GF@step</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="38" opcode="LABEL">
+  <arg1 type="label">mainloop</arg1>
+ </instruction>
+ <instruction order="39" opcode="ADD">
+  <arg1 type="var">GF@step</arg1>
+  <arg2 type="var">GF@step</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="40" opcode="GETCHAR">
+  <arg1 type="var">GF@read</arg1>
+  <arg2 type="var">GF@mem</arg2>
+  <arg3 type="var">GF@ptr</arg3>
+ </instruction>
+ <instruction order="41" opcode="STRI2INT">
+  <arg1 type="var">GF@read</arg1>
+  <arg2 type="var">GF@read</arg2>
+  <arg3 type="int">0</arg3>
+ </instruction>
+ <instruction order="42" opcode="SUB">
+  <arg1 type="var">GF@read</arg1>
+  <arg2 type="var">GF@read</arg2>
+  <arg3 type="int">48</arg3>
+ </instruction>
+ <instruction order="43" opcode="MOVE">
+  <arg1 type="var">GF@sindex</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="44" opcode="LABEL">
+  <arg1 type="label">sindexloop</arg1>
+ </instruction>
+ <instruction order="45" opcode="GETCHAR">
+  <arg1 type="var">GF@sread</arg1>
+  <arg2 type="var">GF@statemap</arg2>
+  <arg3 type="var">GF@sindex</arg3>
+ </instruction>
+ <instruction order="46" opcode="JUMPIFEQ">
+  <arg1 type="label">sindexend</arg1>
+  <arg2 type="var">GF@sread</arg2>
+  <arg3 type="var">GF@state</arg3>
+ </instruction>
+ <instruction order="47" opcode="ADD">
+  <arg1 type="var">GF@sindex</arg1>
+  <arg2 type="var">GF@sindex</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="48" opcode="JUMPIFEQ">
+  <arg1 type="label">failstate</arg1>
+  <arg2 type="var">GF@sindex</arg2>
+  <arg3 type="var">GF@statecnt</arg3>
+ </instruction>
+ <instruction order="49" opcode="JUMP">
+  <arg1 type="label">sindexloop</arg1>
+ </instruction>
+ <instruction order="50" opcode="LABEL">
+  <arg1 type="label">sindexend</arg1>
+ </instruction>
+ <instruction order="51" opcode="MUL">
+  <arg1 type="var">GF@turptr</arg1>
+  <arg2 type="var">GF@sindex</arg2>
+  <arg3 type="int">2</arg3>
+ </instruction>
+ <instruction order="52" opcode="ADD">
+  <arg1 type="var">GF@turptr</arg1>
+  <arg2 type="var">GF@turptr</arg2>
+  <arg3 type="var">GF@read</arg3>
+ </instruction>
+ <instruction order="53" opcode="MUL">
+  <arg1 type="var">GF@turptr</arg1>
+  <arg2 type="var">GF@turptr</arg2>
+  <arg3 type="int">3</arg3>
+ </instruction>
+ <instruction order="54" opcode="GETCHAR">
+  <arg1 type="var">GF@wrt</arg1>
+  <arg2 type="var">GF@tur</arg2>
+  <arg3 type="var">GF@turptr</arg3>
+ </instruction>
+ <instruction order="55" opcode="SETCHAR">
+  <arg1 type="var">GF@mem</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@wrt</arg3>
+ </instruction>
+ <instruction order="56" opcode="ADD">
+  <arg1 type="var">GF@turptr</arg1>
+  <arg2 type="var">GF@turptr</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="57" opcode="GETCHAR">
+  <arg1 type="var">GF@move</arg1>
+  <arg2 type="var">GF@tur</arg2>
+  <arg3 type="var">GF@turptr</arg3>
+ </instruction>
+ <instruction order="58" opcode="STRI2INT">
+  <arg1 type="var">GF@move</arg1>
+  <arg2 type="var">GF@move</arg2>
+  <arg3 type="int">0</arg3>
+ </instruction>
+ <instruction order="59" opcode="SUB">
+  <arg1 type="var">GF@move</arg1>
+  <arg2 type="var">GF@move</arg2>
+  <arg3 type="int">111</arg3>
+ </instruction>
+ <instruction order="60" opcode="IDIV">
+  <arg1 type="var">GF@move</arg1>
+  <arg2 type="var">GF@move</arg2>
+  <arg3 type="int">3</arg3>
+ </instruction>
+ <instruction order="61" opcode="ADD">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@move</arg3>
+ </instruction>
+ <instruction order="62" opcode="JUMPIFEQ">
+  <arg1 type="label">ptr_over</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@memsize</arg3>
+ </instruction>
+ <instruction order="63" opcode="JUMPIFEQ">
+  <arg1 type="label">ptr_under</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="int">-1</arg3>
+ </instruction>
+ <instruction order="64" opcode="JUMP">
+  <arg1 type="label">newstate</arg1>
+ </instruction>
+ <instruction order="65" opcode="LABEL">
+  <arg1 type="label">ptr_over</arg1>
+ </instruction>
+ <instruction order="66" opcode="SUB">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@memsize</arg3>
+ </instruction>
+ <instruction order="67" opcode="JUMP">
+  <arg1 type="label">newstate</arg1>
+ </instruction>
+ <instruction order="68" opcode="LABEL">
+  <arg1 type="label">ptr_under</arg1>
+ </instruction>
+ <instruction order="69" opcode="ADD">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@memsize</arg3>
+ </instruction>
+ <instruction order="70" opcode="LABEL">
+  <arg1 type="label">newstate</arg1>
+ </instruction>
+ <instruction order="71" opcode="ADD">
+  <arg1 type="var">GF@turptr</arg1>
+  <arg2 type="var">GF@turptr</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="72" opcode="GETCHAR">
+  <arg1 type="var">GF@state</arg1>
+  <arg2 type="var">GF@tur</arg2>
+  <arg3 type="var">GF@turptr</arg3>
+ </instruction>
+ <instruction order="73" opcode="JUMPIFNEQ">
+  <arg1 type="label">mainloop</arg1>
+  <arg2 type="var">GF@state</arg2>
+  <arg3 type="string">h</arg3>
+ </instruction>
+ <instruction order="74" opcode="MOVE">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="75" opcode="MOVE">
+  <arg1 type="var">GF@total</arg1>
+  <arg2 type="int">0</arg2>
+ </instruction>
+ <instruction order="76" opcode="LABEL">
+  <arg1 type="label">cntloop</arg1>
+ </instruction>
+ <instruction order="77" opcode="GETCHAR">
+  <arg1 type="var">GF@read</arg1>
+  <arg2 type="var">GF@mem</arg2>
+  <arg3 type="var">GF@ptr</arg3>
+ </instruction>
+ <instruction order="78" opcode="ADD">
+  <arg1 type="var">GF@ptr</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="79" opcode="JUMPIFEQ">
+  <arg1 type="label">cntloop</arg1>
+  <arg2 type="var">GF@read</arg2>
+  <arg3 type="string">0</arg3>
+ </instruction>
+ <instruction order="80" opcode="ADD">
+  <arg1 type="var">GF@total</arg1>
+  <arg2 type="var">GF@total</arg2>
+  <arg3 type="int">1</arg3>
+ </instruction>
+ <instruction order="81" opcode="JUMPIFEQ">
+  <arg1 type="label">cntend</arg1>
+  <arg2 type="var">GF@ptr</arg2>
+  <arg3 type="var">GF@memsize</arg3>
+ </instruction>
+ <instruction order="82" opcode="JUMP">
+  <arg1 type="label">cntloop</arg1>
+ </instruction>
+ <instruction order="83" opcode="LABEL">
+  <arg1 type="label">cntend</arg1>
+ </instruction>
+ <instruction order="84" opcode="WRITE">
+  <arg1 type="string">Total\032ones\032produced:\032</arg1>
+ </instruction>
+ <instruction order="85" opcode="WRITE">
+  <arg1 type="var">GF@total</arg1>
+ </instruction>
+ <instruction order="86" opcode="WRITE">
+  <arg1 type="string">\010Total\032steps\032taken:\032</arg1>
+ </instruction>
+ <instruction order="87" opcode="WRITE">
+  <arg1 type="var">GF@step</arg1>
+ </instruction>
+ <instruction order="88" opcode="WRITE">
+  <arg1 type="string">\010Final\032memory\032state:\010</arg1>
+ </instruction>
+ <instruction order="89" opcode="WRITE">
+  <arg1 type="var">GF@mem</arg1>
+ </instruction>
+ <instruction order="90" opcode="WRITE">
+  <arg1 type="string">\010</arg1>
+ </instruction>
+ <instruction order="91" opcode="JUMP">
+  <arg1 type="label">end</arg1>
+ </instruction>
+ <instruction order="92" opcode="LABEL">
+  <arg1 type="label">failstate</arg1>
+ </instruction>
+ <instruction order="93" opcode="WRITE">
+  <arg1 type="string">Invalid\032state\032found:\032</arg1>
+ </instruction>
+ <instruction order="94" opcode="WRITE">
+  <arg1 type="var">GF@state</arg1>
+ </instruction>
+ <instruction order="95" opcode="WRITE">
+  <arg1 type="string">\010</arg1>
+ </instruction>
+ <instruction order="96" opcode="LABEL">
+  <arg1 type="label">end</arg1>
+ </instruction>
+</program>
